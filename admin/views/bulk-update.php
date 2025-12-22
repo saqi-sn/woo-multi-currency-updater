@@ -86,7 +86,7 @@ $currencies = GMC_Database::get_currencies();
             <div class="notice notice-">
                 <p>
                     <?php esc_html_e('No currencies found. Please add currencies before updating prices.', 'multi-currency-updater-for-woo'); ?>
-                    <a href="<?php echo admin_url('admin.php?page=gmc-currencies'); ?>" class="button button-small">
+                    <a href="<?php echo esc_url(admin_url('admin.php?page=gmc-currencies')); ?>" class="button button-small">
                         <?php esc_html_e('Add Currency', 'multi-currency-updater-for-woo'); ?>
                     </a>
                 </p>

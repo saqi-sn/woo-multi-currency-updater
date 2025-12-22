@@ -97,9 +97,6 @@ class Multi_Currency_Woo {
      * Initialize plugin
      */
     public function init() {
-        // Load plugin text domain
-        load_plugin_textdomain('multi-currency-updater-for-woo', false, dirname(GMC_PLUGIN_BASENAME) . '/languages');
-
         // Include required files
         $this->include_files();
     }

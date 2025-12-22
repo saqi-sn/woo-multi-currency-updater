@@ -55,7 +55,7 @@ $excluded_products = GMC_Exclusion_Manager::get_exclusions_with_details();
                                 <td><?php echo esc_html($product['id']); ?></td>
                                 <td>
                                     <strong>
-                                        <a href="<?php echo get_edit_post_link($product['id']); ?>" target="_blank">
+                                        <a href="<?php echo esc_url(get_edit_post_link($product['id'])); ?>" target="_blank">
                                             <?php echo esc_html($product['name']); ?>
                                         </a>
                                     </strong>
@@ -64,7 +64,7 @@ $excluded_products = GMC_Exclusion_Manager::get_exclusions_with_details();
                                 <td><?php echo esc_html(ucfirst($product['type'])); ?></td>
                                 <td><?php echo wc_price($product['price']); ?></td>
                                 <td>
-                                    <a href="<?php echo wp_nonce_url(admin_url('admin.php?page=gmc-exclusions&action=remove&product_id=' . $product['id']), 'gmc_remove_exclusion_' . $product['id']); ?>"
+                                    <a href="<?php echo esc_url(wp_nonce_url(admin_url('admin.php?page=gmc-exclusions&action=remove&product_id=' . $product['id']), 'gmc_remove_exclusion_' . $product['id'])); ?>"
                                        class="button button-small button-link-delete gmc-remove-exclusion">
                                         <?php esc_html_e('Remove', 'multi-currency-updater-for-woo'); ?>
                                     </a>

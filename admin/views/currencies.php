@@ -114,7 +114,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'edit' && isset($_GET['id'])) 
                                name="gmc_edit_currency"
                                class="button button-primary"
                                value="<?php esc_html_e('Update Currency', 'multi-currency-updater-for-woo'); ?>">
-                        <a href="<?php echo admin_url('admin.php?page=gmc-currencies'); ?>" class="button"><?php esc_html_e('Cancel', 'multi-currency-updater-for-woo'); ?></a>
+                        <a href="<?php echo esc_url(admin_url('admin.php?page=gmc-currencies')); ?>" class="button"><?php esc_html_e('Cancel', 'multi-currency-updater-for-woo'); ?></a>
                     <?php else: ?>
                         <input type="submit"
                                name="gmc_add_currency"
@@ -155,10 +155,10 @@ if (isset($_GET['action']) && $_GET['action'] === 'edit' && isset($_GET['id'])) 
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <a href="<?php echo admin_url('admin.php?page=gmc-currencies&action=edit&id=' . $currency->id); ?>" class="button button-small">
+                                    <a href="<?php echo esc_url(admin_url('admin.php?page=gmc-currencies&action=edit&id=' . $currency->id)); ?>" class="button button-small">
                                         <?php esc_html_e('Edit', 'multi-currency-updater-for-woo'); ?>
                                     </a>
-                                    <a href="<?php echo wp_nonce_url(admin_url('admin.php?page=gmc-currencies&action=delete&id=' . $currency->id), 'gmc_delete_currency_' . $currency->id); ?>"
+                                    <a href="<?php echo esc_url(wp_nonce_url(admin_url('admin.php?page=gmc-currencies&action=delete&id=' . $currency->id), 'gmc_delete_currency_' . $currency->id)); ?>"
                                        class="button button-small button-link-delete gmc-delete-currency">
                                         <?php esc_html_e('Delete', 'multi-currency-updater-for-woo'); ?>
                                     </a>
