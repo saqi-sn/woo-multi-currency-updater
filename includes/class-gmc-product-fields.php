@@ -62,6 +62,11 @@ class GMC_Product_Fields {
      * Save simple product fields
      */
     public function save_simple_product_fields($post_id) {
+        // Verify nonce - WooCommerce uses update_post_meta nonce
+        if (!isset($_POST['woocommerce_meta_nonce']) || !wp_verify_nonce($_POST['woocommerce_meta_nonce'], 'woocommerce_save_data')) {
+            return;
+        }
+
         $base_price = isset($_POST['_gmc_base_price']) ? sanitize_text_field($_POST['_gmc_base_price']) : '';
         $currency = isset($_POST['_gmc_currency']) ? sanitize_text_field($_POST['_gmc_currency']) : '';
 
@@ -113,6 +118,11 @@ class GMC_Product_Fields {
      * Save variation fields
      */
     public function save_variation_fields($variation_id, $loop) {
+        // Verify nonce - WooCommerce uses update_post_meta nonce
+        if (!isset($_POST['woocommerce_meta_nonce']) || !wp_verify_nonce($_POST['woocommerce_meta_nonce'], 'woocommerce_save_data')) {
+            return;
+        }
+
         if (isset($_POST['_gmc_base_price'][$loop])) {
             $base_price = sanitize_text_field($_POST['_gmc_base_price'][$loop]);
             update_post_meta($variation_id, '_gmc_base_price', $base_price);

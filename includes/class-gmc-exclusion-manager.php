@@ -24,8 +24,11 @@ class GMC_Exclusion_Manager {
         }
 
         // Handle remove exclusion
-        if (isset($_GET['action']) && $_GET['action'] === 'remove' && isset($_GET['product_id']) && check_admin_referer('gmc_remove_exclusion_' . $_GET['product_id'], '_wpnonce')) {
-            $this->remove_exclusion();
+        if (isset($_GET['action']) && $_GET['action'] === 'remove' && isset($_GET['product_id'])) {
+            $product_id = intval($_GET['product_id']);
+            if (check_admin_referer('gmc_remove_exclusion_' . $product_id, '_wpnonce')) {
+                $this->remove_exclusion();
+            }
         }
     }
 

@@ -32,8 +32,11 @@ class GMC_Currency_Manager {
         }
 
         // Handle delete currency
-        if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id']) && check_admin_referer('gmc_delete_currency_' . $_GET['id'], '_wpnonce')) {
-            $this->delete_currency();
+        if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])) {
+            $id = intval($_GET['id']);
+            if (check_admin_referer('gmc_delete_currency_' . $id, '_wpnonce')) {
+                $this->delete_currency();
+            }
         }
     }
 
