@@ -88,7 +88,7 @@ class Multi_Currency_Woo {
     public function woocommerce_missing_notice() {
         ?>
         <div class="notice notice-error">
-            <p><?php _e('Multi-Currency Price Updater for Woo requires WooCommerce to be installed and active.', 'multi-currency-updater-for-woo'); ?></p>
+            <p><?php esc_html_e('Multi-Currency Price Updater for Woo requires WooCommerce to be installed and active.', 'multi-currency-updater-for-woo'); ?></p>
         </div>
         <?php
     }
@@ -123,8 +123,8 @@ class Multi_Currency_Woo {
         // Main menu page
         add_submenu_page(
             'woocommerce',
-            __('Multi-Currency', 'multi-currency-updater-for-woo'),
-            __('Multi-Currency', 'multi-currency-updater-for-woo'),
+            esc_html__('Multi-Currency', 'multi-currency-updater-for-woo'),
+            esc_html__('Multi-Currency', 'multi-currency-updater-for-woo'),
             'manage_woocommerce',
             'gmc-currencies',
             array($this, 'render_currencies_page')
@@ -133,8 +133,8 @@ class Multi_Currency_Woo {
         // Exclusions submenu
         add_submenu_page(
             'woocommerce',
-            __('Price Update Exclusions', 'multi-currency-updater-for-woo'),
-            __('Price Exclusions', 'multi-currency-updater-for-woo'),
+            esc_html__('Price Update Exclusions', 'multi-currency-updater-for-woo'),
+            esc_html__('Price Exclusions', 'multi-currency-updater-for-woo'),
             'manage_woocommerce',
             'gmc-exclusions',
             array($this, 'render_exclusions_page')
@@ -143,8 +143,8 @@ class Multi_Currency_Woo {
         // Bulk update submenu
         add_submenu_page(
             'woocommerce',
-            __('Bulk Price Update', 'multi-currency-updater-for-woo'),
-            __('Bulk Price Update', 'multi-currency-updater-for-woo'),
+            esc_html__('Bulk Price Update', 'multi-currency-updater-for-woo'),
+            esc_html__('Bulk Price Update', 'multi-currency-updater-for-woo'),
             'manage_woocommerce',
             'gmc-bulk-update',
             array($this, 'render_bulk_update_page')
@@ -186,11 +186,11 @@ class Multi_Currency_Woo {
                 'ajaxUrl' => admin_url('admin-ajax.php'),
                 'nonce' => wp_create_nonce('gmc_nonce'),
                 'strings' => array(
-                    'confirmDelete' => __('Are you sure you want to delete this currency?', 'multi-currency-updater-for-woo'),
-                    'confirmRemove' => __('Are you sure you want to remove this product from exclusions?', 'multi-currency-updater-for-woo'),
-                    'processing' => __('Processing...', 'multi-currency-updater-for-woo'),
-                    'completed' => __('Update completed!', 'multi-currency-updater-for-woo'),
-                    'error' => __('An error occurred. Please try again.', 'multi-currency-updater-for-woo'),
+                    'confirmDelete' => esc_html__('Are you sure you want to delete this currency?', 'multi-currency-updater-for-woo'),
+                    'confirmRemove' => esc_html__('Are you sure you want to remove this product from exclusions?', 'multi-currency-updater-for-woo'),
+                    'processing' => esc_html__('Processing...', 'multi-currency-updater-for-woo'),
+                    'completed' => esc_html__('Update completed!', 'multi-currency-updater-for-woo'),
+                    'error' => esc_html__('An error occurred. Please try again.', 'multi-currency-updater-for-woo'),
                 )
             ));
         }

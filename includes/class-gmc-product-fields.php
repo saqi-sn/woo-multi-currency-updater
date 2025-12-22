@@ -31,14 +31,14 @@ class GMC_Product_Fields {
 
         echo '<div class="options_group gmc-product-fields">';
 
-        echo '<h3 style="padding: 10px 12px; margin: 0; border-top: 1px solid #eee;">' . __('Multi-Currency Price Settings', 'multi-currency-updater-for-woo') . '</h3>';
+        echo '<h3 style="padding: 10px 12px; margin: 0; border-top: 1px solid #eee;">' . esc_html__('Multi-Currency Price Settings', 'multi-currency-updater-for-woo') . '</h3>';
 
         // Base price field
         woocommerce_wp_text_input(array(
             'id' => '_gmc_base_price',
-            'label' => __('Base Price', 'multi-currency-updater-for-woo'),
+            'label' => esc_html__('Base Price', 'multi-currency-updater-for-woo'),
             'desc_tip' => true,
-            'description' => __('Enter the base price in the selected currency. This will be used to calculate the regular price.', 'multi-currency-updater-for-woo'),
+            'description' => esc_html__('Enter the base price in the selected currency. This will be used to calculate the regular price.', 'multi-currency-updater-for-woo'),
             'type' => 'number',
             'custom_attributes' => array(
                 'step' => '0.01',
@@ -49,9 +49,9 @@ class GMC_Product_Fields {
         // Currency selector
         woocommerce_wp_select(array(
             'id' => '_gmc_currency',
-            'label' => __('Currency', 'multi-currency-updater-for-woo'),
+            'label' => esc_html__('Currency', 'multi-currency-updater-for-woo'),
             'desc_tip' => true,
-            'description' => __('Select the currency for the base price.', 'multi-currency-updater-for-woo'),
+            'description' => esc_html__('Select the currency for the base price.', 'multi-currency-updater-for-woo'),
             'options' => GMC_Database::get_currency_options()
         ));
 
@@ -76,15 +76,15 @@ class GMC_Product_Fields {
         $variation_id = $variation->ID;
 
         echo '<div class="gmc-variation-fields" style="padding: 10px 12px; border-top: 1px solid #eee;">';
-        echo '<h4 style="margin: 0 0 10px 0;">' . __('Multi-Currency Settings', 'multi-currency-updater-for-woo') . '</h4>';
+        echo '<h4 style="margin: 0 0 10px 0;">' . esc_html__('Multi-Currency Settings', 'multi-currency-updater-for-woo') . '</h4>';
 
         // Base price field
         woocommerce_wp_text_input(array(
             'id' => '_gmc_base_price_' . $loop,
             'name' => '_gmc_base_price[' . $loop . ']',
-            'label' => __('Base Price', 'multi-currency-updater-for-woo'),
+            'label' => esc_html__('Base Price', 'multi-currency-updater-for-woo'),
             'desc_tip' => true,
-            'description' => __('Enter the base price in the selected currency.', 'multi-currency-updater-for-woo'),
+            'description' => esc_html__('Enter the base price in the selected currency.', 'multi-currency-updater-for-woo'),
             'type' => 'number',
             'custom_attributes' => array(
                 'step' => '0.01',
@@ -98,9 +98,9 @@ class GMC_Product_Fields {
         woocommerce_wp_select(array(
             'id' => '_gmc_currency_' . $loop,
             'name' => '_gmc_currency[' . $loop . ']',
-            'label' => __('Currency', 'multi-currency-updater-for-woo'),
+            'label' => esc_html__('Currency', 'multi-currency-updater-for-woo'),
             'desc_tip' => true,
-            'description' => __('Select the currency for the base price.', 'multi-currency-updater-for-woo'),
+            'description' => esc_html__('Select the currency for the base price.', 'multi-currency-updater-for-woo'),
             'options' => GMC_Database::get_currency_options(),
             'value' => get_post_meta($variation_id, '_gmc_currency', true),
             'wrapper_class' => 'form-row form-row-last'
@@ -145,9 +145,9 @@ class GMC_Product_Fields {
         ?>
         <div class="options_group gmc-manual-update">
             <p class="form-field">
-                <label><?php _e('Update Price Now', 'multi-currency-updater-for-woo'); ?></label>
+                <label><?php esc_html_e('Update Price Now', 'multi-currency-updater-for-woo'); ?></label>
                 <button type="button" class="button button-secondary gmc-manual-update-btn" data-product-id="<?php echo esc_attr($post->ID); ?>">
-                    <?php _e('Update Regular Price from Base Price', 'multi-currency-updater-for-woo'); ?>
+                    <?php esc_html_e('Update Regular Price from Base Price', 'multi-currency-updater-for-woo'); ?>
                 </button>
                 <span class="gmc-manual-update-result"></span>
             </p>
@@ -170,7 +170,7 @@ class GMC_Product_Fields {
         ?>
         <div class="gmc-variation-manual-update" style="padding: 10px 12px;">
             <button type="button" class="button button-secondary gmc-manual-update-btn" data-product-id="<?php echo esc_attr($variation_id); ?>" data-is-variation="1">
-                <?php _e('Update Price from Base Price', 'multi-currency-updater-for-woo'); ?>
+                <?php esc_html_e('Update Price from Base Price', 'multi-currency-updater-for-woo'); ?>
             </button>
             <span class="gmc-manual-update-result"></span>
         </div>

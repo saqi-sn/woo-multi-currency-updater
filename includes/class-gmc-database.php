@@ -128,7 +128,7 @@ class GMC_Database {
      */
     public static function get_currency_options() {
         $currencies = self::get_currencies();
-        $options = array('' => __('Select Currency', 'multi-currency-updater-for-woo'));
+        $options = array('' => esc_html__('Select Currency', 'multi-currency-updater-for-woo'));
 
         foreach ($currencies as $currency) {
             $options[$currency->currency_code] = $currency->currency_code . ' - ' . $currency->currency_name;
