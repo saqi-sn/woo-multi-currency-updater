@@ -6,7 +6,7 @@
  * Version: 1.0.0
  * Author: Ali Sahafi
  * Author URI: https://alisahafi.ir
- * Text Domain: multi-currency-woo
+ * Text Domain: woo-multi-currency-updater
  * Domain Path: /languages
  * Requires at least: 5.8
  * Requires PHP: 7.4
@@ -86,7 +86,7 @@ class Multi_Currency_Woo {
     public function woocommerce_missing_notice() {
         ?>
         <div class="notice notice-error">
-            <p><?php _e('Multi-Currency Price Updater for Woo requires WooCommerce to be installed and active.', 'multi-currency-woo'); ?></p>
+            <p><?php _e('Multi-Currency Price Updater for Woo requires WooCommerce to be installed and active.', 'woo-multi-currency-updater'); ?></p>
         </div>
         <?php
     }
@@ -96,7 +96,7 @@ class Multi_Currency_Woo {
      */
     public function init() {
         // Load plugin text domain
-        load_plugin_textdomain('multi-currency-woo', false, dirname(GMC_PLUGIN_BASENAME) . '/languages');
+        load_plugin_textdomain('woo-multi-currency-updater', false, dirname(GMC_PLUGIN_BASENAME) . '/languages');
 
         // Include required files
         $this->include_files();
@@ -121,8 +121,8 @@ class Multi_Currency_Woo {
         // Main menu page
         add_submenu_page(
             'woocommerce',
-            __('Multi-Currency', 'multi-currency-woo'),
-            __('Multi-Currency', 'multi-currency-woo'),
+            __('Multi-Currency', 'woo-multi-currency-updater'),
+            __('Multi-Currency', 'woo-multi-currency-updater'),
             'manage_woocommerce',
             'gmc-currencies',
             array($this, 'render_currencies_page')
@@ -131,8 +131,8 @@ class Multi_Currency_Woo {
         // Exclusions submenu
         add_submenu_page(
             'woocommerce',
-            __('Price Update Exclusions', 'multi-currency-woo'),
-            __('Price Exclusions', 'multi-currency-woo'),
+            __('Price Update Exclusions', 'woo-multi-currency-updater'),
+            __('Price Exclusions', 'woo-multi-currency-updater'),
             'manage_woocommerce',
             'gmc-exclusions',
             array($this, 'render_exclusions_page')
@@ -141,8 +141,8 @@ class Multi_Currency_Woo {
         // Bulk update submenu
         add_submenu_page(
             'woocommerce',
-            __('Bulk Price Update', 'multi-currency-woo'),
-            __('Bulk Price Update', 'multi-currency-woo'),
+            __('Bulk Price Update', 'woo-multi-currency-updater'),
+            __('Bulk Price Update', 'woo-multi-currency-updater'),
             'manage_woocommerce',
             'gmc-bulk-update',
             array($this, 'render_bulk_update_page')
@@ -184,11 +184,11 @@ class Multi_Currency_Woo {
                 'ajaxUrl' => admin_url('admin-ajax.php'),
                 'nonce' => wp_create_nonce('gmc_nonce'),
                 'strings' => array(
-                    'confirmDelete' => __('Are you sure you want to delete this currency?', 'multi-currency-woo'),
-                    'confirmRemove' => __('Are you sure you want to remove this product from exclusions?', 'multi-currency-woo'),
-                    'processing' => __('Processing...', 'multi-currency-woo'),
-                    'completed' => __('Update completed!', 'multi-currency-woo'),
-                    'error' => __('An error occurred. Please try again.', 'multi-currency-woo'),
+                    'confirmDelete' => __('Are you sure you want to delete this currency?', 'woo-multi-currency-updater'),
+                    'confirmRemove' => __('Are you sure you want to remove this product from exclusions?', 'woo-multi-currency-updater'),
+                    'processing' => __('Processing...', 'woo-multi-currency-updater'),
+                    'completed' => __('Update completed!', 'woo-multi-currency-updater'),
+                    'error' => __('An error occurred. Please try again.', 'woo-multi-currency-updater'),
                 )
             ));
         }

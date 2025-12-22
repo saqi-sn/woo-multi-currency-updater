@@ -60,23 +60,23 @@ $currencies = GMC_Database::get_currencies();
 
     <div class="gmc-container">
         <div class="gmc-stats-section">
-            <h2><?php _e('Update Statistics', 'multi-currency-woo'); ?></h2>
+            <h2><?php _e('Update Statistics', 'woo-multi-currency-updater'); ?></h2>
 
             <div class="gmc-stats-grid">
                 <div class="gmc-stat-card">
-                    <div class="gmc-stat-label"><?php _e('Total Products', 'multi-currency-woo'); ?></div>
+                    <div class="gmc-stat-label"><?php _e('Total Products', 'woo-multi-currency-updater'); ?></div>
                     <div class="gmc-stat-value"><?php echo esc_html($total_products); ?></div>
                 </div>
                 <div class="gmc-stat-card">
-                    <div class="gmc-stat-label"><?php _e('Products/Variations with Base Price', 'multi-currency-woo'); ?></div>
+                    <div class="gmc-stat-label"><?php _e('Products/Variations with Base Price', 'woo-multi-currency-updater'); ?></div>
                     <div class="gmc-stat-value"><?php echo esc_html($products_with_base_price); ?></div>
                 </div>
                 <div class="gmc-stat-card">
-                    <div class="gmc-stat-label"><?php _e('Excluded Products', 'multi-currency-woo'); ?></div>
+                    <div class="gmc-stat-label"><?php _e('Excluded Products', 'woo-multi-currency-updater'); ?></div>
                     <div class="gmc-stat-value"><?php echo esc_html($excluded_count); ?></div>
                 </div>
                 <div class="gmc-stat-card">
-                    <div class="gmc-stat-label"><?php _e('Available Currencies', 'multi-currency-woo'); ?></div>
+                    <div class="gmc-stat-label"><?php _e('Available Currencies', 'woo-multi-currency-updater'); ?></div>
                     <div class="gmc-stat-value"><?php echo esc_html(count($currencies)); ?></div>
                 </div>
             </div>
@@ -85,34 +85,34 @@ $currencies = GMC_Database::get_currencies();
         <?php if (empty($currencies)): ?>
             <div class="notice notice-warning">
                 <p>
-                    <?php _e('No currencies found. Please add currencies before updating prices.', 'multi-currency-woo'); ?>
+                    <?php _e('No currencies found. Please add currencies before updating prices.', 'woo-multi-currency-updater'); ?>
                     <a href="<?php echo admin_url('admin.php?page=gmc-currencies'); ?>" class="button button-small">
-                        <?php _e('Add Currency', 'multi-currency-woo'); ?>
+                        <?php _e('Add Currency', 'woo-multi-currency-updater'); ?>
                     </a>
                 </p>
             </div>
         <?php elseif ($products_with_base_price === 0): ?>
             <div class="notice notice-warning">
-                <p><?php _e('No products or variations have base price and currency set. Please configure your products first.', 'multi-currency-woo'); ?></p>
+                <p><?php _e('No products or variations have base price and currency set. Please configure your products first.', 'woo-multi-currency-updater'); ?></p>
             </div>
         <?php else: ?>
             <div class="gmc-update-section">
-                <h2><?php _e('Bulk Price Update', 'multi-currency-woo'); ?></h2>
+                <h2><?php _e('Bulk Price Update', 'woo-multi-currency-updater'); ?></h2>
 
                 <div class="gmc-update-options">
                     <label class="gmc-checkbox-label">
                         <input type="checkbox" id="gmc-dry-run" checked>
-                        <strong><?php _e('Dry Run Mode (Preview Only)', 'multi-currency-woo'); ?></strong>
-                        <p class="description"><?php _e('When enabled, no prices will be changed. Use this to preview what will be updated.', 'multi-currency-woo'); ?></p>
+                        <strong><?php _e('Dry Run Mode (Preview Only)', 'woo-multi-currency-updater'); ?></strong>
+                        <p class="description"><?php _e('When enabled, no prices will be changed. Use this to preview what will be updated.', 'woo-multi-currency-updater'); ?></p>
                     </label>
                 </div>
 
                 <div class="gmc-update-controls">
                     <button type="button" id="gmc-start-update" class="button button-primary button-large">
-                        <?php _e('Start Price Update', 'multi-currency-woo'); ?>
+                        <?php _e('Start Price Update', 'woo-multi-currency-updater'); ?>
                     </button>
                     <button type="button" id="gmc-stop-update" class="button button-secondary button-large" style="display: none;">
-                        <?php _e('Stop Update', 'multi-currency-woo'); ?>
+                        <?php _e('Stop Update', 'woo-multi-currency-updater'); ?>
                     </button>
                 </div>
 
@@ -123,26 +123,26 @@ $currencies = GMC_Database::get_currencies();
                         </div>
                     </div>
                     <div class="gmc-progress-info">
-                        <span id="gmc-progress-current">0</span> / <span id="gmc-progress-total">0</span> <?php _e('processed', 'multi-currency-woo'); ?>
+                        <span id="gmc-progress-current">0</span> / <span id="gmc-progress-total">0</span> <?php _e('processed', 'woo-multi-currency-updater'); ?>
                     </div>
                 </div>
 
                 <div id="gmc-update-log" class="gmc-update-log" style="display: none;">
-                    <h3><?php _e('Update Log', 'multi-currency-woo'); ?></h3>
+                    <h3><?php _e('Update Log', 'woo-multi-currency-updater'); ?></h3>
                     <div id="gmc-log-content" class="gmc-log-content"></div>
                 </div>
             </div>
         <?php endif; ?>
 
         <div class="gmc-info-section">
-            <h3><?php _e('How it works', 'multi-currency-woo'); ?></h3>
+            <h3><?php _e('How it works', 'woo-multi-currency-updater'); ?></h3>
             <ol>
-                <li><?php _e('The system processes products in batches of 10 to prevent timeouts', 'multi-currency-woo'); ?></li>
-                <li><?php _e('Only products/variations with base price and currency set will be updated', 'multi-currency-woo'); ?></li>
-                <li><?php _e('Excluded products are skipped automatically', 'multi-currency-woo'); ?></li>
-                <li><?php _e('Regular price = Base Price × Exchange Rate', 'multi-currency-woo'); ?></li>
-                <li><?php _e('Sale prices are not affected by the update process', 'multi-currency-woo'); ?></li>
-                <li><?php _e('Use Dry Run mode first to preview changes before applying them', 'multi-currency-woo'); ?></li>
+                <li><?php _e('The system processes products in batches of 10 to prevent timeouts', 'woo-multi-currency-updater'); ?></li>
+                <li><?php _e('Only products/variations with base price and currency set will be updated', 'woo-multi-currency-updater'); ?></li>
+                <li><?php _e('Excluded products are skipped automatically', 'woo-multi-currency-updater'); ?></li>
+                <li><?php _e('Regular price = Base Price × Exchange Rate', 'woo-multi-currency-updater'); ?></li>
+                <li><?php _e('Sale prices are not affected by the update process', 'woo-multi-currency-updater'); ?></li>
+                <li><?php _e('Use Dry Run mode first to preview changes before applying them', 'woo-multi-currency-updater'); ?></li>
             </ol>
         </div>
     </div>

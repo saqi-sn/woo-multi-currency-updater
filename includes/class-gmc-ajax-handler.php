@@ -30,13 +30,13 @@ class GMC_Ajax_Handler {
         check_ajax_referer('gmc_nonce', 'nonce');
 
         if (!current_user_can('manage_woocommerce')) {
-            wp_send_json_error(array('message' => __('Permission denied', 'multi-currency-woo')));
+            wp_send_json_error(array('message' => __('Permission denied', 'woo-multi-currency-updater')));
         }
 
         $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
 
         if (empty($search)) {
-            wp_send_json_error(array('message' => __('Please enter a search term', 'multi-currency-woo')));
+            wp_send_json_error(array('message' => __('Please enter a search term', 'woo-multi-currency-updater')));
         }
 
         $args = array(
@@ -79,21 +79,21 @@ class GMC_Ajax_Handler {
         check_ajax_referer('gmc_nonce', 'nonce');
 
         if (!current_user_can('manage_woocommerce')) {
-            wp_send_json_error(array('message' => __('Permission denied', 'multi-currency-woo')));
+            wp_send_json_error(array('message' => __('Permission denied', 'woo-multi-currency-updater')));
         }
 
         $product_id = isset($_POST['product_id']) ? intval($_POST['product_id']) : 0;
 
         if (empty($product_id)) {
-            wp_send_json_error(array('message' => __('Invalid product ID', 'multi-currency-woo')));
+            wp_send_json_error(array('message' => __('Invalid product ID', 'woo-multi-currency-updater')));
         }
 
         $result = GMC_Exclusion_Manager::add_exclusion($product_id);
 
         if ($result) {
-            wp_send_json_success(array('message' => __('Product added to exclusions', 'multi-currency-woo')));
+            wp_send_json_success(array('message' => __('Product added to exclusions', 'woo-multi-currency-updater')));
         } else {
-            wp_send_json_error(array('message' => __('Product already excluded or error occurred', 'multi-currency-woo')));
+            wp_send_json_error(array('message' => __('Product already excluded or error occurred', 'woo-multi-currency-updater')));
         }
     }
 
@@ -104,7 +104,7 @@ class GMC_Ajax_Handler {
         check_ajax_referer('gmc_nonce', 'nonce');
 
         if (!current_user_can('manage_woocommerce')) {
-            wp_send_json_error(array('message' => __('Permission denied', 'multi-currency-woo')));
+            wp_send_json_error(array('message' => __('Permission denied', 'woo-multi-currency-updater')));
         }
 
         $offset = isset($_POST['offset']) ? intval($_POST['offset']) : 0;
@@ -130,13 +130,13 @@ class GMC_Ajax_Handler {
         check_ajax_referer('gmc_nonce', 'nonce');
 
         if (!current_user_can('edit_products')) {
-            wp_send_json_error(array('message' => __('Permission denied', 'multi-currency-woo')));
+            wp_send_json_error(array('message' => __('Permission denied', 'woo-multi-currency-updater')));
         }
 
         $product_id = isset($_POST['product_id']) ? intval($_POST['product_id']) : 0;
 
         if (empty($product_id)) {
-            wp_send_json_error(array('message' => __('Invalid product ID', 'multi-currency-woo')));
+            wp_send_json_error(array('message' => __('Invalid product ID', 'woo-multi-currency-updater')));
         }
 
         $result = GMC_Price_Updater::update_product_price($product_id, false);
