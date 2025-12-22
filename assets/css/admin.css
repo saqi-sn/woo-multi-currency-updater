@@ -1,0 +1,324 @@
+/* Multi-Currency Admin Styles */
+
+.gmc-wrap {
+    margin: 20px 20px 0 0;
+}
+
+.gmc-container {
+    max-width: 1200px;
+}
+
+/* Form Section */
+.gmc-form-section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.gmc-form-section h2,
+.gmc-table-section h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.gmc-form-section .required {
+    color: #d63638;
+}
+
+/* Table Section */
+.gmc-table-section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Badges */
+.gmc-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 3px;
+    background-color: #dcdcde;
+    color: #50575e;
+}
+
+.gmc-badge-primary {
+    background-color: #2271b1;
+    color: #fff;
+}
+
+.gmc-badge-success {
+    background-color: #00a32a;
+    color: #fff;
+}
+
+.gmc-badge-info {
+    background-color: #72aee6;
+    color: #fff;
+}
+
+/* Product Search */
+.gmc-product-search {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.gmc-product-search input[type="text"] {
+    flex: 1;
+    max-width: 500px;
+}
+
+.gmc-search-results {
+    margin-top: 20px;
+}
+
+.gmc-search-results .wp-list-table {
+    margin-top: 10px;
+}
+
+.gmc-error {
+    color: #d63638;
+    font-weight: 600;
+}
+
+.gmc-info {
+    color: #2271b1;
+    font-weight: 600;
+}
+
+/* Stats Section */
+.gmc-stats-section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.gmc-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.gmc-stat-card {
+    background: #f6f7f7;
+    padding: 20px;
+    border-radius: 4px;
+    border-left: 4px solid #2271b1;
+}
+
+.gmc-stat-label {
+    font-size: 12px;
+    color: #646970;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.gmc-stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1d2327;
+}
+
+/* Update Section */
+.gmc-update-section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.gmc-update-options {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f0f6fc;
+    border-left: 4px solid #72aee6;
+}
+
+.gmc-checkbox-label {
+    display: block;
+    cursor: pointer;
+}
+
+.gmc-checkbox-label input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.gmc-checkbox-label .description {
+    margin: 8px 0 0 24px;
+}
+
+.gmc-update-controls {
+    margin: 20px 0;
+}
+
+.gmc-update-controls .button-large {
+    padding: 8px 20px;
+    height: auto;
+    font-size: 14px;
+}
+
+/* Progress Bar */
+.gmc-update-progress {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f6f7f7;
+    border-radius: 4px;
+}
+
+.gmc-progress-bar-container {
+    width: 100%;
+    height: 30px;
+    background-color: #dcdcde;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gmc-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #2271b1 0%, #135e96 100%);
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gmc-progress-text {
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.gmc-progress-info {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #50575e;
+}
+
+/* Update Log */
+.gmc-update-log {
+    margin-top: 20px;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+}
+
+.gmc-update-log h3 {
+    margin: 0;
+    padding: 15px 20px;
+    background: #f6f7f7;
+    border-bottom: 1px solid #ccd0d4;
+}
+
+.gmc-log-content {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 15px 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    background: #1d2327;
+    color: #f0f0f1;
+}
+
+.gmc-log-entry {
+    padding: 5px 0;
+    border-bottom: 1px solid #2c3338;
+}
+
+.gmc-log-entry:last-child {
+    border-bottom: none;
+}
+
+.gmc-log-time {
+    color: #a7aaad;
+    margin-right: 10px;
+}
+
+.gmc-log-success {
+    color: #5fb35f;
+}
+
+.gmc-log-error {
+    color: #f86363;
+}
+
+.gmc-log-warning {
+    color: #f0b849;
+}
+
+.gmc-log-info {
+    color: #72aee6;
+}
+
+/* Info Section */
+.gmc-info-section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.gmc-info-section h3 {
+    margin-top: 0;
+}
+
+.gmc-info-section ol {
+    margin-left: 20px;
+}
+
+.gmc-info-section li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* Product Fields */
+.gmc-product-fields,
+.gmc-variation-fields,
+.gmc-manual-update,
+.gmc-variation-manual-update {
+    margin-top: 15px;
+}
+
+.gmc-success {
+    color: #00a32a;
+    font-weight: 600;
+}
+
+.gmc-manual-update-result {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .gmc-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gmc-product-search {
+        flex-direction: column;
+    }
+
+    .gmc-product-search input[type="text"] {
+        max-width: 100%;
+    }
+}
