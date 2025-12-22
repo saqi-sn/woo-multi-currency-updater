@@ -62,7 +62,7 @@ $excluded_products = GMC_Exclusion_Manager::get_exclusions_with_details();
                                 </td>
                                 <td><?php echo esc_html($product['sku']); ?></td>
                                 <td><?php echo esc_html(ucfirst($product['type'])); ?></td>
-                                <td><?php echo wc_price($product['price']); ?></td>
+                                <td><?php echo wp_kses_post(wc_price($product['price'])); ?></td>
                                 <td>
                                     <a href="<?php echo esc_url(wp_nonce_url(admin_url('admin.php?page=gmc-exclusions&action=remove&product_id=' . $product['id']), 'gmc_remove_exclusion_' . $product['id'])); ?>"
                                        class="button button-small button-link-delete gmc-remove-exclusion">
