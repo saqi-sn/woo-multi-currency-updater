@@ -164,7 +164,7 @@ jQuery(document).ready(function($) {
         logMessage('Starting price update...', 'info');
 
         if (isDryRun) {
-            logMessage('DRY RUN MODE: No prices will be changed', 'warning');
+            logMessage('DRY RUN MODE: No prices will be changed', '');
         }
 
         processBatch(isDryRun);
@@ -173,7 +173,7 @@ jQuery(document).ready(function($) {
     $('#gmc-stop-update').on('click', function() {
         if (confirm('Are you sure you want to stop the update process?')) {
             updateStopped = true;
-            logMessage('Update process stopped by user', 'warning');
+            logMessage('Update process stopped by user', '');
             resetUpdateUI();
         }
     });
@@ -229,7 +229,7 @@ jQuery(document).ready(function($) {
             },
             error: function(xhr, status, error) {
                 if (status === 'timeout') {
-                    logMessage('Batch timeout - retrying...', 'warning');
+                    logMessage('Batch timeout - retrying...', '');
                     // Retry the same batch
                     setTimeout(function() {
                         processBatch(isDryRun);
@@ -256,7 +256,7 @@ jQuery(document).ready(function($) {
 
         if (result.excluded) {
             const msg = productInfo ? productInfo + ' - ' + result.message : result.message;
-            logMessage('Skipped (excluded): ' + msg, 'warning');
+            logMessage('Skipped (excluded): ' + msg, '');
             return;
         }
 
@@ -322,8 +322,8 @@ jQuery(document).ready(function($) {
             case 'error':
                 className += ' gmc-log-error';
                 break;
-            case 'warning':
-                className += ' gmc-log-warning';
+            case '':
+                className += ' gmc-log-';
                 break;
             case 'info':
                 className += ' gmc-log-info';

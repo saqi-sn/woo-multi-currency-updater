@@ -18,7 +18,7 @@ class GMC_Price_Updater {
         if (!$product) {
             return array(
                 'success' => false,
-                'message' => __('Product not found', 'woo-multi-currency-updater'),
+                'message' => __('Product not found', 'multi-currency-updater-for-woo'),
                 'product_id' => $product_id
             );
         }
@@ -27,7 +27,7 @@ class GMC_Price_Updater {
         if (GMC_Exclusion_Manager::is_excluded($product_id)) {
             return array(
                 'success' => false,
-                'message' => __('Product is excluded from updates', 'woo-multi-currency-updater'),
+                'message' => __('Product is excluded from updates', 'multi-currency-updater-for-woo'),
                 'excluded' => true,
                 'product_name' => $product->get_name(),
                 'product_id' => $product_id
@@ -52,7 +52,7 @@ class GMC_Price_Updater {
         if (empty($base_price) || empty($currency_code)) {
             return array(
                 'success' => false,
-                'message' => __('No base price or currency set', 'woo-multi-currency-updater'),
+                'message' => __('No base price or currency set', 'multi-currency-updater-for-woo'),
                 'skipped' => true,
                 'product_name' => $product->get_name(),
                 'product_id' => $product_id
@@ -64,7 +64,8 @@ class GMC_Price_Updater {
         if (!$currency) {
             return array(
                 'success' => false,
-                'message' => sprintf(__('Currency %s not found', 'woo-multi-currency-updater'), $currency_code),
+                /* translators: %s: Currency code */
+                'message' => sprintf(__('Currency %s not found', 'multi-currency-updater-for-woo'), $currency_code),
                 'product_name' => $product->get_name(),
                 'product_id' => $product_id
             );
@@ -102,7 +103,7 @@ class GMC_Price_Updater {
         if (empty($variation_ids)) {
             return array(
                 'success' => false,
-                'message' => __('No variations found', 'woo-multi-currency-updater'),
+                'message' => __('No variations found', 'multi-currency-updater-for-woo'),
                 'skipped' => true,
                 'product_name' => $product->get_name()
             );
@@ -155,7 +156,7 @@ class GMC_Price_Updater {
         if (!$has_updates) {
             return array(
                 'success' => false,
-                'message' => __('No variations with base price set', 'woo-multi-currency-updater'),
+                'message' => __('No variations with base price set', 'multi-currency-updater-for-woo'),
                 'skipped' => true,
                 'product_name' => $product->get_name()
             );
@@ -258,7 +259,7 @@ class GMC_Price_Updater {
         if (!$variation) {
             return array(
                 'success' => false,
-                'message' => __('Variation not found', 'woo-multi-currency-updater'),
+                'message' => __('Variation not found', 'multi-currency-updater-for-woo'),
                 'product_id' => $variation_id
             );
         }
@@ -269,7 +270,7 @@ class GMC_Price_Updater {
         if (empty($base_price) || empty($currency_code)) {
             return array(
                 'success' => false,
-                'message' => __('No base price or currency set', 'woo-multi-currency-updater'),
+                'message' => __('No base price or currency set', 'multi-currency-updater-for-woo'),
                 'skipped' => true,
                 'product_name' => $variation->get_name(),
                 'product_id' => $variation_id
@@ -281,7 +282,8 @@ class GMC_Price_Updater {
         if (!$currency) {
             return array(
                 'success' => false,
-                'message' => sprintf(__('Currency %s not found', 'woo-multi-currency-updater'), $currency_code),
+                /* translators: %s: Currency code */
+                'message' => sprintf(__('Currency %s not found', 'multi-currency-updater-for-woo'), $currency_code),
                 'product_name' => $variation->get_name(),
                 'product_id' => $variation_id
             );

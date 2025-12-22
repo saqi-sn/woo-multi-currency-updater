@@ -59,7 +59,7 @@ class GMC_Exclusion_Manager {
         $product_id = isset($_GET['product_id']) ? intval($_GET['product_id']) : 0;
 
         if (empty($product_id)) {
-            add_settings_error('gmc_messages', 'gmc_message', __('Invalid product ID.', 'woo-multi-currency-updater'), 'error');
+            add_settings_error('gmc_messages', 'gmc_message', __('Invalid product ID.', 'multi-currency-updater-for-woo'), 'error');
             return;
         }
 
@@ -69,9 +69,9 @@ class GMC_Exclusion_Manager {
         if ($key !== false) {
             unset($exclusions[$key]);
             update_option(self::OPTION_NAME, array_values($exclusions));
-            add_settings_error('gmc_messages', 'gmc_message', __('Product removed from exclusions.', 'woo-multi-currency-updater'), 'success');
+            add_settings_error('gmc_messages', 'gmc_message', __('Product removed from exclusions.', 'multi-currency-updater-for-woo'), 'success');
         } else {
-            add_settings_error('gmc_messages', 'gmc_message', __('Product not found in exclusions.', 'woo-multi-currency-updater'), 'error');
+            add_settings_error('gmc_messages', 'gmc_message', __('Product not found in exclusions.', 'multi-currency-updater-for-woo'), 'error');
         }
 
         wp_redirect(admin_url('admin.php?page=gmc-exclusions'));
