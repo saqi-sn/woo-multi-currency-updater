@@ -118,17 +118,30 @@ class GMC_Product_Fields {
      * Save variation fields
      */
     public function save_variation_fields($variation_id, $loop) {
-        // Verify nonce - WooCommerce uses update_post_meta nonce
-        if (!isset($_POST['woocommerce_meta_nonce']) || !wp_verify_nonce($_POST['woocommerce_meta_nonce'], 'woocommerce_save_data')) {
-            return;
+        // The AJAX save uses a different nonce named 'security' with action 'woocommerce_save_variations'
+        // We need to verify that nonce as well.
+        $is_ajax_save = isset($_POST['action']) && $_POST['action'] === 'woocommerce_save_variations';
+        
+        if ($is_ajax_save) {
+            // Verify the AJAX nonce
+            if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'woocommerce_save_variations')) {
+                return;
+            }
+        } else {
+            // Standard save via post.php
+            if (!isset($_POST['woocommerce_meta_nonce']) || !wp_verify_nonce($_POST['woocommerce_meta_nonce'], 'woocommerce_save_data')) {
+                return;
+            }
         }
 
-        if (isset($_POST['_gmc_base_price'][$loop])) {
+        // Save base price - check if the field exists in POST (may be empty string)
+        if (isset($_POST['_gmc_base_price']) && array_key_exists($loop, $_POST['_gmc_base_price'])) {
             $base_price = sanitize_text_field($_POST['_gmc_base_price'][$loop]);
             update_post_meta($variation_id, '_gmc_base_price', $base_price);
         }
 
-        if (isset($_POST['_gmc_currency'][$loop])) {
+        // Save currency
+        if (isset($_POST['_gmc_currency']) && array_key_exists($loop, $_POST['_gmc_currency'])) {
             $currency = sanitize_text_field($_POST['_gmc_currency'][$loop]);
             update_post_meta($variation_id, '_gmc_currency', $currency);
         }
